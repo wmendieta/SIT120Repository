@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6 Task sheets</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+</head>
+<body>
+    <div id="app">
+        <h1>Welcome to Task Sheet week 6!</h1>
+    
+        <div>
+            <label for="">Name: </label>
+            <input type="text" v-model="name">
+            <br>
+            <label for="">Password: </label>
+            <input type="password" v-model="password">
+            <br>
+            <label for="">Email: </label>
+            <input type="text" v-model="email">
+
+        </div>
+
+        <div>
+            The message for vue instance is: 
+            <br>
+            {{message}}
+        </div>
+        <br>
+
+        <br>
+        Task 2
+        <br>
+
+        <!-- Check boxes -->
+        <div>
+            <input type="checkbox" value="First option" v-model="checkedValues">
+            <label for="" >First option</label>
+            <input type="checkbox" value="Second option" v-model="checkedValues">
+            <label for="" >Second option</label>
+            <br>
+            the checked itens are:
+            <br>
+            {{checkedValues}}
+    
+        </div>
+        <br>
+        <br>
+        Task 3 
+        <br>
+        
+        <!-- options entered manually -->
+        <div>
+            <select v-model="selected">
+                <option disabled>Please select an option:</option>
+                <option value="Option 1">Option 1</option>
+                <option value="Option 2">Option 2</option>
+            </select>
+            <br>
+            <div>
+                the selected option is:
+                <br>
+                {{selected}}
+            </div>
+        </div>
+
+        
+        <br>
+        <br>
+
+        <!-- Dynamic options using v-for -->
+
+        <div>
+            <select name="" id="" v-model="dynamicSelected">
+                <option v-for="item in dynamicValues" v-bind:value="item">{{item}}</option>
+
+            </select>
+        </div>
+
+        <br>
+        <div>
+            <input type="text" v-model="message1">
+            <br>
+
+            this is v model message: {{message1}}
+            <br>
+            <input type="text" v-bind:value="message2">
+            <br>
+            this is v binding message: {{message2}}
+        </div>
+
+        <br>
+        <br>
+    <!-- v-model.lazy is used so the binded text only updates once "Enter" 
+        is pressed. Without .lazy it is updated at the same time  -->
+        <div>
+            <input type="text" v-model.lazy="message3">
+            <br>
+            {{message3}}
+        </div>
+
+        <br>
+        <br>
+    <!-- v-model.number is used to indicate the data is a number, the value
+    will not be a string anymore but a number instead -->
+        <div>
+            <input type="text" v-model.number="age">
+            <br>
+            the calculate valu of age + 10 is:
+            <br>
+            {{calculate}}
+        </div>
+        <br>
+        <br>
+
+        Boolean checkbox example
+
+        <div>
+            click =>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{ checked }}</label>
+        </div>
+
+    </div>
+
+    
+
+    
+
+
+    <!-- <script>
+        document.get
+    </script>
+    traditionally, document.get will be used which is time consuming -->
+
+
+    <script>
+        //syntax for Vue, remember to add " " after el: for example, "#..."
+        new Vue ({
+            el: "#app",
+            data() {
+                return {
+                    message: "This is lab 6",
+                    name: "",
+                    password: "",
+                    email: "",
+                    checkedValues: [],
+                    selected: "",
+                    checked: "",
+                    dynamicValues: [1,2,3,4,5,6,7,8],
+                    dynamicSelected: "",
+                    message1: "v model example",
+                    message2: "v binding example",
+                    message3: "Let's check v-model modifiers!",
+                    age: 0,
+
+                }
+            },
+            //parts of the Vue instance (Methods and Computed)
+            methods: {
+
+            },
+            //careful to add the comas otherwise the code will not show
+            computed: {
+                calculate(){
+                    return this.age + 10;
+                }
+
+            }
+        })
+    </script>
+
+    <!-- if you want to create a script.js file and link to 
+        this html use code below -->
+    <!-- <script src="script.js">
+        
+    </script> -->
+
+</body>
+</html>
