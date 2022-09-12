@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 7 Workshop</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .componenta {
+            display: block;
+            background-color: gold;
+            height: 150px;
+            text-align: center;
+            padding-top: 4em;
+        }
+
+        .componentb {
+            display: block;
+            background-color: grey;
+            height: 150px;
+            text-align: center;
+            padding-top: 4em;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <!-- This area would be for your VUE instance -->
+        {{message}}
+
+        <div class="componenta">
+            <component-a inline-template>
+                <div>
+                    <h1>{{componentamessage}}</h1>
+                </div>
+            </component-a> 
+            
+        </div>
+        <div class="componentb">
+            <component-b></component-b> 
+        </div>
+
+    
+
+    </div>
+    
+<script>
+
+    let componentB = {
+        data(){
+            return {
+                 componentBMessage: "Hello from component B!"
+            }
+        },
+        template: '<h1>{{componentBMessage}}</h1>' 
+    }
+    
+    // two ways to create components
+    // Global
+    Vue.component('component-a',{
+        data(){
+            return {
+                 componentamessage: "Hello from component A! (inline template)"
+            }
+        },
+        // template: '<h1>{{componentamessage}}</h1>'  
+    })
+
+
+    new Vue({
+        el: "#app",
+        data(){
+            return {
+                message: "Hello week 7 workshop!!",
+
+            }
+        },
+        components: {
+            'component-b': componentB
+        }
+    })
+
+
+</script>
+
+</body>
+</html>
