@@ -3,11 +3,11 @@ h1 {
 }
 
 body {
-    background-color: blue;
+    background-color: bisque;
 }
 
 #main-header { 
     background-color: green;
-    color: crimson;
+    color: rgb(20, 60, 220);
     
 }
