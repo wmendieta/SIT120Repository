@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .componenta {
+            display: block;
+            background-color: gold;
+            height: 150px;
+            text-align: center;
+            padding-top: 4em;
+        }
+
+        .componentprops {
+            display: block;
+            background-color: green;
+            height: 150px;
+            text-align: center;
+            padding-top: 4em;
+        }
+
+        .componentslots {
+            display: block;
+            background-color: darkslateblue;
+            height: 150px;
+            text-align: center;
+            padding-top: 4em;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+
+        <div class="componentprops">
+            <component-props inline-template propsname="Props value passed!">
+                <div>
+                    {{message}}
+                    <br>
+                    {{propsname}}
+                </div>
+            </component-props>
+
+              
+        </div>
+
+        <!-- div section for component slots -->
+        <div class="componentslots">
+            <component-slots>
+
+                I want to add extra text here!
+                <template v-slot:header>
+                    this is a header slot!
+                </template>
+
+                <template v-slot:footer>
+                    this is a footer slot!
+                </template>
+                sdsdfsdfs
+                <!-- text above (sdsdfsdfs) only added to the default -->
+
+            </component-slots>
+         </div>
+    </div>
+
+    <!-- template -->
+    <script type="text/x-template" id="template1">
+        <div>
+            <h1>{{message1}}</h1>
+            <slot></slot>
+
+            <header>
+                <slot name="header"></slot>
+            </header>
+
+            <footer>
+                <slot name="footer"></slot>
+            </footer>
+
+            
+
+        </div>
+
+    </script>
+
+    <script>
+        
+// globally listed Vue component
+
+        Vue.component('component-slots', {
+            data() {
+                return {
+                    message1: 'Hello Vue JS!'
+                }
+            },
+            template: "#template1"
+        })
+
+        Vue.component('component-props',{
+            props: ["propsname"],
+            data() {
+                return{
+                    message: "Hello from Props Component!!"
+                }
+            }
+        })
+
+        new Vue({
+        el: "#app",
+        data(){
+            return {
+                message: "Hello Props!"
+            }
+        }
+    })
+    </script>
+
+        
+</body>
+</html>

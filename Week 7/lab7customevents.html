@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 7 Custom Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .componenta {
+            display: block;
+            background-color: green;
+            height: 150px;
+            text-align: center;
+            padding-top: 4em;
+            color: yellow;
+        }
+
+        .componentb {
+            display: block;
+            background-color: brown;
+            height: 150px;
+            text-align: center;
+            padding-top: 4em;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        {{message}}
+        <div>
+            <component-a inline-template @anyname="increaseCount">
+                <div class="componenta">
+                    {{messageFromComponentA}}
+                    <br>
+                    <button @click="increaseCount"> Change the Root Value</button>
+                    <br>
+                    <button @click="$emit('anyname')"> Change the Root Using Emit</button>
+                </div>
+                
+            </component-a>
+        </div>
+        <div>
+            <component-b inline-template>
+                <div class="componentb">
+                    {{messageFromComponentB}}
+                </div>
+            </component-b>
+        </div>
+        <div>
+            <button @click="increaseCount">click to increase number</button>
+        </div>
+        <div style="width: 100%;text-align: center; background-color: aqua;">
+            {{count}}
+        </div>
+    </div>
+
+    <script>
+        Vue.component('component-a',{
+            data(){
+                return{
+                    messageFromComponentA: "Hello From Component A"
+                }
+            }
+        })
+
+        Vue.component('component-b',{
+            data(){
+                return{
+                    messageFromComponentB: "Hello From Component B"
+                }
+            }
+        })
+
+        //Root(main Vue instance)
+
+        new Vue({
+            el: "#app",
+            data(){
+                return {
+                    message: "Hello Custom Events!!!",
+                    count: 0
+                }
+            },
+            methods: {
+                increaseCount(){
+                    this.count += 1
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
