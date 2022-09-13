@@ -13,18 +13,37 @@
 
     <body>
         <h1> 
-            this is header 1
+            This is the Title (Header1)
         </h1>
         <div style="width: 100px;"> 
-            this is the div section
+            <b>This is the div section in bold (100px)</b>
              
         </div>
-        <p> ssddsdsdsdsd sdsdsds sdsdsdsd <br/> sdsdsdsd sdsdsdsdsdds</p>
+        <p> This is a split paragraph <br/> This line goes under</p>
 
-        <h2 id="header2"> This is header 2 header 2 header 2 </h2>
-        <h3 style="width: 500px;"> this is another header </h3>
+        <img src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/3117192df163b1c655a6081e58961533bd8e1afe/big-317a87546e8649aae22e694d77523453.jpg"width="600" height="400">
+        <br>
 
-        <p style="color:darkred"> this is paragraph 1 </p>
+        <a href="https://www.kimkim.com/c/highlights-of-new-zealand">New Zealand (HTML Link)</a>
+
+        <h2 id="header2"> This is text will change colour </h2>
+        <h3 style="width: 500px;"> this is another header with 500px </h3>
+        <br>
+        <mark>This is a marked text!</mark>
+        <br>
+
+        <p style="color:rgb(28, 0, 139)"> This is paragraph 1 with inline color </p>
+
+        <h4>This is a Form example</h4>
+
+        <form action="/action_page.php">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value=""><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value=""><br><br>
+            <input type="submit" value="Submit">
+          </form> 
+          <br>
 
         <button id="btn" onclick="showAlert()"> Click me! </button>
 
@@ -39,11 +58,22 @@
             */
             function showAlert() 
             {
-                alert("What are you doing???")
+                alert("What's the time")
                 var heading2 = document.getElementById("header2");
                 heading2.style.color = "yellow";
             }
-        </script>
+
+           
+            </script>
+
+            <br>
+            <br>
+
+            <button type="button"
+            onclick="document.getElementById('dateTime').innerHTML = Date()">
+            Display Date and Time.</button>
+
+            <p id="dateTime"></p>
 
 
     </body>
