@@ -27,14 +27,32 @@ console.log(ab);
 
 
 // Data types in Javascript
+// "string: asasfsdfsdf"
 
+// string example
 let firstName = "Michael";
 console.log(typeof firstName);
 let number = 2
+// float
 let floats = 2.3
+// boolean
 let check = true;
 console.log(check);
 console.log(typeof floats);
 console.log(typeof check);
 let checkNull = null;
 console.log(typeof checkNull);
+
+console.clear();
+
+let string = "my name is : ";
+console.log(string.length)
+console.log(string.slice(4,5))
+console.log(string.slice(4,9))
+
+
+console.log("abcd".toUpperCase());
+
+
+let number1 = 4;
+console.log(typeof number1.toString());
